@@ -22,3 +22,11 @@ class PokemonEntity(models.Model):
         verbose_name="Покемон",
         related_name='entities'
     )
+    appeared_at = models.DateTimeField(
+        default=timezone.now,
+        verbose_name="Время появления"
+    )
+    disappeared_at = models.DateTimeField(
+        default=timezone.now,
+        verbose_name="Время исчезновения"
+    )
