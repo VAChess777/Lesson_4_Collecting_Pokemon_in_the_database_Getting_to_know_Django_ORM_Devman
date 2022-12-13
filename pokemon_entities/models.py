@@ -9,7 +9,6 @@ class Pokemon(models.Model):
     title = models.CharField(max_length=200, verbose_name="Название покемона")
     photo = models.ImageField(upload_to='media', blank=True, verbose_name="Фото покемона")
 
-
     def __str__(self):
         return self.title
 
@@ -17,3 +16,9 @@ class Pokemon(models.Model):
 class PokemonEntity(models.Model):
     latitude = models.FloatField(verbose_name="Широта")
     longitude = models.FloatField(verbose_name="Долгота")
+    pokemon = models.ForeignKey(
+        Pokemon,
+        on_delete=models.CASCADE,
+        verbose_name="Покемон",
+        related_name='entities'
+    )
