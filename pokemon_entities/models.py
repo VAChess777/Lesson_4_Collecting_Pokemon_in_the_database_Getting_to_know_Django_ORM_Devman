@@ -16,4 +16,4 @@ class Pokemon(models.Model):
 
 class PokemonEntity(models.Model):
     latitude = models.FloatField(verbose_name="Широта")
-    longititude = models.FloatField(verbose_name="Долгота")
+    longitude = models.FloatField(verbose_name="Долгота")
