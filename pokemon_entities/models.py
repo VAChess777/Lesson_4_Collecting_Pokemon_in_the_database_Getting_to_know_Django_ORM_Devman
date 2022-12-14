@@ -29,6 +29,15 @@ class Pokemon(models.Model):
         blank=True,
         verbose_name="Описание покемона"
     )
+    descendant = models.ForeignKey(
+        'self',
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+        related_name="evolutions",
+        related_query_name="evolution",
+        verbose_name="Эволюция покемона",
+    )
 
     def __str__(self):
         return self.title

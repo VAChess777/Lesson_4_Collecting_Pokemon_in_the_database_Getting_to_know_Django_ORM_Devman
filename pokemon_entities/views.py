@@ -73,6 +73,8 @@ def show_pokemon(request, pokemon_id):
             pokemon_entity.longitude,
             pokemon_entity.pokemon.photo.path,
         )
+    pokemon.previous_evolution = pokemon.evolutions.first()
+    pokemon.next_evolution = pokemon.descendant
     return render(
         request,
         'pokemon.html',
