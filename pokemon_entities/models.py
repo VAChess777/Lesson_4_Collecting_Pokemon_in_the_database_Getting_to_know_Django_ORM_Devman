@@ -8,12 +8,22 @@ from django.utils import timezone
 class Pokemon(models.Model):
     title = models.CharField(
         max_length=200,
-        verbose_name='Pokemon Name'
+        verbose_name='Название покемона'
     )
+    title_en = models.CharField(
+        max_length=200,
+        blank=True,
+        verbose_name="Название покемона(англ.)"
+        )
+    title_jp = models.CharField(
+        max_length=200,
+        blank=True,
+        verbose_name="Название покемона(яп.)"
+        )
     photo = models.ImageField(
         upload_to='media',
         blank=True,
-        verbose_name='Pokemon Photo'
+        verbose_name='Фото покемона'
     )
     description = models.TextField(
         blank=True,
@@ -26,47 +36,47 @@ class Pokemon(models.Model):
 
 class PokemonEntity(models.Model):
     latitude = models.FloatField(
-        verbose_name='Latitude'
+        verbose_name='Широта'
     )
     longitude = models.FloatField(
-        verbose_name='Longitude'
+        verbose_name='Долгота'
     )
     pokemon = models.ForeignKey(
         Pokemon,
         on_delete=models.CASCADE,
-        verbose_name="Pokemon",
+        verbose_name="Покемон",
         related_name='entities'
     )
     appeared_at = models.DateTimeField(
         default=timezone.now,
-        verbose_name="Time of appearance"
+        verbose_name="Время появления"
     )
     disappeared_at = models.DateTimeField(
         default=timezone.now,
-        verbose_name="Time of disappearance"
+        verbose_name="Время исчезновения"
     )
     level = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name="Level"
+        verbose_name="Уровень покемона"
     )
     health = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name="Health"
+        verbose_name="Здоровье покемона"
         )
     attack = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name="Attack"
+        verbose_name="Сила атаки покемона"
     )
     protection = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name="Protection"
+        verbose_name="Уровень зашиты покемона"
     )
     endurance = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name="Endurance"
+        verbose_name="Выносливость покемона"
     )
