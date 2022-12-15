@@ -1,43 +1,94 @@
-# Карта покемонов
+# The Pokemon map
+
+A program for creating a Pokemon card. Allows the user to display information about any Pokemon and its current location in a convenient form.
 
 ![screenshot](https://dvmn.org/filer/canonical/1563275070/172/)
 
-### Предметная область
 
-Сайт для помощи по игре [Pokemon GO](https://www.pokemongo.com/en-us/). Это игра про ловлю [покемонов](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BA%D0%B5%D0%BC%D0%BE%D0%BD).
+### Software environment and installation:
 
-Суть игры в том, что на карте периодически появляются покемоны, на определённый промежуток времени. Каждый игрок может поймать себе покемона, и пополнить свою личную коллекцию.
+Python3 should already be installed.
 
-На карте может быть сразу несколько особей одного и того же покемона: например, 3 Бульбазавра. Каждую особь могут поймать сразу несколько игроков. Если игрок поймал себе особь покемона, она исчезает для него, но остаётся для других.
+### Program installation:
 
-В игре есть механика эволюции. Покемон одного вида может "эволюционировать" в другого. Так, например, Бульбазавр превращается в Ивизавра, а тот превращается в Венузавра.
+Download the code: [https://github.com/VAChess777/Lesson_4_Collecting_Pokemon_in_the_database_Getting_to_know_Django_ORM_Devman](https://github.com/VAChess777/Lesson_4_Collecting_Pokemon_in_the_database_Getting_to_know_Django_ORM_Devman), or clone the `git` repository to a local folder:
+```
+https://github.com/VAChess777/Lesson_4_Collecting_Pokemon_in_the_database_Getting_to_know_Django_ORM_Devman
+```
 
-![bulba evolution](https://dvmn.org/filer/canonical/1562265973/167/)
-
-### Как запустить
-
-Для запуска сайта вам понадобится Python третьей версии.
-
-Скачайте код с GitHub. Затем установите зависимости
-
-```sh
+### Installing dependencies:
+ 
+Use `pip` (or `pip3`, if there is a conflict with Python2) to install dependencies:
+```bach
 pip install -r requirements.txt
 ```
 
-Запустите разработческий сервер
+### About environment variables:
 
-```sh
-python3 manage.py runserver
+The program `settings.py ` there are environment variables in the `project` folder that are responsible for configuring access to the database.
+create a `.env` file, place it in the root directory of the program. Put the following data in the `.env` file in the `key=value` format.
+
+`DB_NAME=` - Database name. 
+`SECRET_KEY=` - Django secret key.              
+`DEBUG=` - True for enabling debugging mode, False for production. The default value is `False`.                                                         
+`ALLOWED_HOSTS=` - This is a security measure to prevent HTTP Host header attacks, which are possible even under many seemingly-safe web server configurations.
+Example of ALLOWED_HOSTS settings in file. env - `ALLOWED_HOSTS = ['www.djangoproject.dev', 'docs.djangoproject.dev', 'localhost' ...]`. Where
+`www.djangoproject.dev', 'docs.djangoproject.dev, 'localhost'` -  addresses of allowed hosts. The default value is `localhost`.   
+
+### How to run the program:
+
+* Run the migration of models and database creation with the following commands in the console:
+```angular2html
+python manage.py makemigrations
 ```
+```angular2html
+python manage.py migrate
+```
+* After that, you can start the local server:
+```angular2html
+python manage.py runserver
+```
+![img.png](img.png)
 
-### Переменные окружения
+* Then we create the administrative part of the site.
+```angular2html
+python manage.py createsuperuser
+```
+Pokemon and their location on the map is more convenient to add through it.
 
-Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
+* Starting the server again:
+```angular2html
+python manage.py runserver
+```
+* Go to the admin panel http://127.0.0.1:8000/admin/
+![img_1.png](img_1.png)
 
-Доступны 2 переменные:
-- `DEBUG` — дебаг-режим. Поставьте True, чтобы увидеть отладочную информацию в случае ошибки.
-- `SECRET_KEY` — секретный ключ проекта
 
-## Цели проекта
 
-Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
