@@ -50,11 +50,12 @@ python manage.py runserver
 ```
 ![](https://github.com/VAChess777/images_/blob/1d7788c28592fca3aeb55d39eee588de68ea41d5/Empty_map_of_Moscow.png)
 
-* Then we create the administrative part of the site.
+* Then we create the administrative part of the site.         
+Pokemon and their location on the map is more convenient to add through it.
 ```angular2html
 python manage.py createsuperuser
 ```
-Pokemon and their location on the map is more convenient to add through it.
+
 
 * Starting the server again:
 ```angular2html
@@ -75,10 +76,19 @@ The site admin panel looks like this:
 
 * After entering data on all manifestations, Pokemon will appear on the map:
 
+* If you have not launched the site on the local server, then run it with the command in the console:
+```angular2html
+python manage.py runserver
+```
+### How the program works:
 
+The program contains scripts:
 
-
-
+```manage.py``` - the program that runs the server.
+```settings.py``` - the program is located in the project folder. Responsible for setting up access to the site database.   
+```models.py``` - the program is located in the datacenter folder. The program is responsible for data models and their fields.          
+```urls.py``` - the program is located in the project folder. Responsible for setting up links to site pages. 
+```views.py``` - the program responsible for displaying Pokemon on the map.
 
 
 
