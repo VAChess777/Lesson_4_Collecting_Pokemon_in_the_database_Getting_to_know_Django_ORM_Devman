@@ -84,10 +84,10 @@ python manage.py runserver
 
 The program contains scripts:
 
-```manage.py``` - the program that runs the server.
+```manage.py``` - the program that runs the server.           
 ```settings.py``` - the program is located in the project folder. Responsible for setting up access to the site database.   
 ```models.py``` - the program is located in the datacenter folder. The program is responsible for data models and their fields.          
-```urls.py``` - the program is located in the project folder. Responsible for setting up links to site pages. 
+```urls.py``` - the program is located in the project folder. Responsible for setting up links to site pages.           
 ```views.py``` - the program responsible for displaying Pokemon on the map.
 
 
