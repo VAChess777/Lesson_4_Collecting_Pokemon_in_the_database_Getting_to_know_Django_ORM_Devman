@@ -48,7 +48,7 @@ python manage.py migrate
 ```angular2html
 python manage.py runserver
 ```
-![img.png](img.png)
+![](https://github.com/VAChess777/my_images/blob/41fd58f493671b3c3188a68b6fdda09f9646747b/img.png)
 
 * Then we create the administrative part of the site.
 ```angular2html
@@ -60,8 +60,8 @@ Pokemon and their location on the map is more convenient to add through it.
 ```angular2html
 python manage.py runserver
 ```
-* Go to the admin panel http://127.0.0.1:8000/admin/
-![img_1.png](img_1.png)
+* Go to the admin panel http://127.0.0.1:8000/admin/                             
+![](https://github.com/VAChess777/my_images/blob/41fd58f493671b3c3188a68b6fdda09f9646747b/img_1.png)
 
 
 
