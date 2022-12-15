@@ -90,20 +90,14 @@ The program contains scripts:
 ```urls.py``` - the program is located in the project folder. Responsible for setting up links to site pages.           
 ```views.py``` - the program responsible for displaying Pokemon on the map.
 
+### Features works of the program:
 
+The `views.py` program contains the functions:
 
+* The `add_pokemon` function - adds Pokemon to the map.
+* The `show_all_pokemons` function - responsible for displaying all Pokemon on the main page map.
+* The `show_pokemon` function - responsible for displaying Pokemon and its evolution on the pokemon page itself.
 
+### Project Goals
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+This code was written for educational purposes as part of an online course for web developers at [dvmn.org](https://dvmn.org/).
