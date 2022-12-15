@@ -48,7 +48,7 @@ python manage.py migrate
 ```angular2html
 python manage.py runserver
 ```
-![](https://github.com/VAChess777/images_/blob/72519ecf52a9ebfbc5549e2f6ceb7b937769e76b/img.png)
+![](https://github.com/VAChess777/images_/blob/1d7788c28592fca3aeb55d39eee588de68ea41d5/Empty_map_of_Moscow.png)
 
 * Then we create the administrative part of the site.
 ```angular2html
@@ -61,9 +61,11 @@ Pokemon and their location on the map is more convenient to add through it.
 python manage.py runserver
 ```
 * Go to the admin panel http://127.0.0.1:8000/admin/                             
-![](https://github.com/VAChess777/images_/blob/72519ecf52a9ebfbc5549e2f6ceb7b937769e76b/img_1.png)
+![](https://github.com/VAChess777/images_/blob/1d7788c28592fca3aeb55d39eee588de68ea41d5/Login_to_Django_admin_panel.png)
 
+The site admin panel looks like this:
 
+![](https://github.com/VAChess777/images_/blob/1d7788c28592fca3aeb55d39eee588de68ea41d5/Django_Admin_panel.png)
 
 
 
