@@ -1,7 +1,5 @@
 import folium
-import json
 
-from django.http import HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404
 from django.utils.timezone import localtime
 
@@ -15,7 +13,12 @@ DEFAULT_IMAGE_URL = (
 )
 
 
-def add_pokemon(folium_map, lat, lon, image_url=DEFAULT_IMAGE_URL):
+def add_pokemon(
+        folium_map,
+        lat,
+        lon,
+        description,
+        image_url=DEFAULT_IMAGE_URL):
     icon = folium.features.CustomIcon(
         image_url,
         icon_size=(50, 50),
@@ -31,7 +34,8 @@ def add_pokemon(folium_map, lat, lon, image_url=DEFAULT_IMAGE_URL):
 def show_all_pokemons(request):
     current_time = localtime()
     pokemon_entities = PokemonEntity.objects.filter(
-        appeared_at__lte=current_time, disappeared_at__gte=current_time
+        appeared_at__lte=current_time,
+        disappeared_at__gte=current_time
     )
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
     for pokemon_entity in pokemon_entities:
@@ -39,6 +43,7 @@ def show_all_pokemons(request):
             folium_map,
             pokemon_entity.latitude,
             pokemon_entity.longitude,
+            pokemon_entity.pokemon.description,
             pokemon_entity.pokemon.photo.path,
         )
     pokemons_on_page = []
@@ -61,9 +66,7 @@ def show_all_pokemons(request):
 
 
 def show_pokemon(request, pokemon_id):
-    # current_time = localtime()
     pokemon = get_object_or_404(Pokemon, id=pokemon_id)
-    # pokemon = Pokemon.objects.all()
     pokemon_entities = pokemon.entities.all()
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
     for pokemon_entity in pokemon_entities:
@@ -71,6 +74,7 @@ def show_pokemon(request, pokemon_id):
             folium_map,
             pokemon_entity.latitude,
             pokemon_entity.longitude,
+            pokemon_entity.pokemon.description,
             pokemon_entity.pokemon.photo.path,
         )
     pokemon.previous_evolution = pokemon.evolutions.first()

@@ -1,10 +1,7 @@
-import pathlib
-from pathlib import Path
-
-from django.db import models  # noqa F401
+from django.db import models
 from django.utils import timezone
 
-# your models here
+
 class Pokemon(models.Model):
     title = models.CharField(
         max_length=200,
