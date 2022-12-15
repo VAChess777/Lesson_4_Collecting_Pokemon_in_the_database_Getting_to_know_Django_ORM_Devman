@@ -60,17 +60,20 @@ Pokemon and their location on the map is more convenient to add through it.
 ```angular2html
 python manage.py runserver
 ```
-* Go to the admin panel http://127.0.0.1:8000/admin/                                                     
-![](https://github.com/VAChess777/images_/blob/1d7788c28592fca3aeb55d39eee588de68ea41d5/Login_to_Django_admin_panel.png)
+* Go to the admin panel http://127.0.0.1:8000/admin/  
+
+![](https://github.com/VAChess777/images_/blob/3f7e679d5e61982a2a879946221642e0e2926851/Django_Admin_panel_1.png)
 
 The site admin panel looks like this:
 
 ![](https://github.com/VAChess777/images_/blob/1d7788c28592fca3aeb55d39eee588de68ea41d5/Django_Admin_panel.png)
 
 
+* Using the Pokemon menu section, you can add Pokemon models
 
+* Using the Pokemon entitys section, you can add a model to describe the appearances/disappearances of Pokemon, as well as additional options
 
-
+* After entering data on all manifestations, Pokemon will appear on the map:
 
 
 
