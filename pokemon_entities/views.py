@@ -81,8 +81,7 @@ def show_pokemon(request, pokemon_id):
     # pokemon['previous_evolution'] = pokemon.previous_evolution.title
     # pokemon['next_evolutions'] = pokemon.previous_evolution
     serialized_pokemon['previous_evolution'] = pokemon.previous_evolution
-
-    serialized_pokemon['next_evolutions'] = pokemon.next_evolutions.first()
+    serialized_pokemon['next_evolution'] = pokemon.next_evolutions.first()
     return render(
         request,
         'pokemon.html',
