@@ -74,16 +74,20 @@ def show_pokemon(request, pokemon_id):
             folium_map,
             pokemon_entity.latitude,
             pokemon_entity.longitude,
-            pokemon_entity.pokemon.description,
-            pokemon_entity.pokemon.photo.path,
+            pokemon.description,
+            pokemon.photo.path,
         )
-    pokemon.previous_evolution = pokemon.evolutions.first()
-    pokemon.next_evolution = pokemon.descendant
+    serialized_pokemon = {}
+    # pokemon['previous_evolution'] = pokemon.previous_evolution.title
+    # pokemon['next_evolutions'] = pokemon.previous_evolution
+    serialized_pokemon['previous_evolution'] = pokemon.previous_evolution
+
+    serialized_pokemon['next_evolutions'] = pokemon.next_evolutions.first()
     return render(
         request,
         'pokemon.html',
         context={
             'map': folium_map._repr_html_(),
-            'pokemon': pokemon
+            'pokemon': serialized_pokemon
         }
     )

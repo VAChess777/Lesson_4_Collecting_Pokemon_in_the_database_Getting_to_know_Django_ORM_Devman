@@ -26,13 +26,12 @@ class Pokemon(models.Model):
         blank=True,
         verbose_name="Описание покемона"
     )
-    descendant = models.ForeignKey(
+    previous_evolution = models.ForeignKey(
         'self',
         on_delete=models.PROTECT,
         null=True,
         blank=True,
-        related_name="evolutions",
-        related_query_name="evolution",
+        related_name="next_evolutions",
         verbose_name="Эволюция покемона",
     )
 
@@ -54,11 +53,11 @@ class PokemonEntity(models.Model):
         related_name='entities'
     )
     appeared_at = models.DateTimeField(
-        default=timezone.now,
+        null=True,
         verbose_name="Время появления"
     )
     disappeared_at = models.DateTimeField(
-        default=timezone.now,
+        null=True,
         verbose_name="Время исчезновения"
     )
     level = models.IntegerField(
