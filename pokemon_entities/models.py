@@ -1,6 +1,4 @@
 from django.db import models
-from django.utils import timezone
-
 
 class Pokemon(models.Model):
     title = models.CharField(
@@ -11,12 +9,12 @@ class Pokemon(models.Model):
         max_length=200,
         blank=True,
         verbose_name="Название покемона(англ.)"
-        )
+    )
     title_jp = models.CharField(
         max_length=200,
         blank=True,
         verbose_name="Название покемона(яп.)"
-        )
+    )
     photo = models.ImageField(
         upload_to='media',
         blank=True,
@@ -49,6 +47,8 @@ class PokemonEntity(models.Model):
     pokemon = models.ForeignKey(
         Pokemon,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         verbose_name="Покемон",
         related_name='entities'
     )
