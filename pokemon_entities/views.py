@@ -90,6 +90,13 @@ def show_pokemon(request, pokemon_id):
             'title_ru': pokemon.previous_evolution.title_ru,
             'img_url': request.build_absolute_uri(pokemon.previous_evolution.photo.url)
         }
+    next_pokemon = pokemon.next_evolutions.first()
+    if next_pokemon:
+        serialized_pokemon['next_evolution'] = {
+            'pokemon.id': next_pokemon.id,
+            'title_ru': next_pokemon.title_ru,
+            'img_url': request.build_absolute_uri(next_pokemon.photo.url)
+        }
     # serialized_pokemon = {}
     # # pokemon['previous_evolution'] = pokemon.previous_evolution.title
     # # pokemon['next_evolutions'] = pokemon.previous_evolution
